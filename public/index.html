@@ -14,6 +14,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script src="mail.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("u0mk6G3aUao4yBp4g");
+   })();
+</script>
 </head>
 <body class="main-content">
     <header class="container header active" id="home">
@@ -529,7 +538,7 @@ that values personal growth.
                             <div class="input-control">
                                 <textarea name="" id="message" cols="15" rows="8" placeholder="Message Here..."></textarea>
                             </div>
-                            <button type="submit"  id="button">SEND</button>
+                            <button type="submit"  id="button" onclick="sendMail()">SEND</button>
                     
                             <div class="submit-btn">
                                    <a href="./Omenda Enos.pdf" download='Enos Omondi Omenda' class="main-btn">
@@ -542,12 +551,12 @@ that values personal growth.
                 </div>
             </div>
 
-           <script type="text/javascript"
+  <!---<script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script type="text/javascript">
   emailjs.init('u0mk6G3aUao4yBp4g')
-</script>
+</script>--->
 
     </main>
 
