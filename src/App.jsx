@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import SEO from './components/SEO'
 
 function App() {
   // ─── LOAD PAGE FROM LOCALSTORAGE ───
@@ -139,6 +140,50 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* ─── SEO ─── */}
+      {page === 'home' && (
+        <SEO 
+          title="Enos Omondi Omenda - Software Developer & IT Professional"
+          description="Hi, I'm Enos Omondi Omenda. I build modern web applications with React, Node.js, and MongoDB. Specializing in full-stack development, cybersecurity, and IT support."
+          keywords="Enos Omenda, Software Developer, Full-Stack Developer, React, Node.js, Web Developer, Kenya, Cybersecurity, IT Support"
+        />
+      )}
+      {page === 'about' && (
+        <SEO 
+          title="About Enos Omondi Omenda - Software Developer"
+          description="Learn about Enos Omondi Omenda, a Software Developer with experience in full-stack web development, cybersecurity, IT support, and systems administration."
+          keywords="About Enos Omenda, Software Developer, Full-Stack Developer, IT Support, Cybersecurity"
+        />
+      )}
+      {page === 'skills' && (
+        <SEO 
+          title="Skills - Enos Omondi Omenda | React, Node.js, Cybersecurity"
+          description="Explore the technical skills of Enos Omondi Omenda - React.js, Node.js, MongoDB, Cybersecurity, IT Support, and more."
+          keywords="Enos Omenda Skills, React, Node.js, MongoDB, Cybersecurity, IT Support"
+        />
+      )}
+      {page === 'projects' && (
+        <SEO 
+          title="Projects - Enos Omondi Omenda | Portfolio"
+          description="Explore projects built by Enos Omondi Omenda including Narra, a live streaming platform, and other full-stack applications."
+          keywords="Enos Omenda Projects, Narra, Live Streaming Platform, Full-Stack Projects, React Projects"
+        />
+      )}
+      {page === 'emblem' && (
+        <SEO 
+          title="The Inevia Emblem - Family Legacy | Enos Omondi Omenda"
+          description="The Inevia Emblem represents strength and wisdom. Learn about the symbolism of the blue owl, red lions, sword, and shield."
+          keywords="Inevia Emblem, Family Legacy, Omenda, Enos Omenda, Family Crest"
+        />
+      )}
+      {page === 'contact' && (
+        <SEO 
+          title="Contact Enos Omondi Omenda - Software Developer"
+          description="Get in touch with Enos Omondi Omenda for collaborations, job opportunities, or project inquiries."
+          keywords="Contact Enos Omenda, Software Developer, Hire, Collaborate"
+        />
+      )}
+
       {/* Animated SVG background */}
       <div className="bg-anim" aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enos-omenda.web.app/sitemap.xml
