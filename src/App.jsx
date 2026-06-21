@@ -170,11 +170,11 @@ function App() {
 
       {/* ─── NAV ─── */}
       <nav>
-        <div className="logo-text" style={{ flexShrink: 0 }}>
+        <div className="logo-text">
           <img src="/img/Enos Emblem.png" alt="Enos Emblem" className="logo-emblem" />
           EO<span>.</span>
         </div>
-        <div className="nav-tabs" style={{ flexShrink: 0 }}>
+        <div className="nav-tabs">
           {navLinks.map(p => (
             <a
               key={p}
@@ -189,7 +189,7 @@ function App() {
             </a>
           ))}
         </div>
-        <div className="status-dot" style={{ flexShrink: 0, marginLeft: 'auto' }}>
+        <div className="status-dot">
           <div className="dot"></div> Open to work
         </div>
       </nav>

@@ -117,7 +117,8 @@
 }
 
 .app-container .dot {
-  width: 8px; height: 8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #4ade80;
   box-shadow: 0 0 8px #4ade80;
@@ -737,13 +738,13 @@
 @media (max-width: 768px) {
   .app-container nav {
     padding: 0 12px;
-    flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 4px;
     height: 56px;
+    flex-wrap: nowrap;
   }
 
   .app-container nav::-webkit-scrollbar {
@@ -766,13 +767,12 @@
     flex-wrap: nowrap;
     gap: 2px;
     padding: 3px 6px;
-    border-radius: 10px;
+    border-radius: 8px;
     flex-shrink: 0;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    max-width: 100%;
     background: transparent;
     border: none;
   }
@@ -815,17 +815,19 @@
 
 @media (max-width: 480px) {
   .app-container nav {
-    padding: 0 8px;
-    height: 48px;
+    padding: 0 6px;
+    height: 44px;
+    gap: 2px;
   }
 
   .app-container .logo-text {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .app-container .logo-emblem {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
   }
 
   .app-container .nav-tabs {
@@ -834,13 +836,14 @@
   }
 
   .app-container .nav-tab {
-    padding: 3px 6px;
+    padding: 2px 6px;
     font-size: 9px;
     border-radius: 4px;
   }
 
   .app-container .status-dot {
     font-size: 8px;
+    gap: 3px;
   }
 
   .app-container .status-dot .dot {
@@ -848,11 +851,10 @@
     height: 4px;
   }
 
-  .app-container .page { padding: 32px 12px; }
-  .app-container .profile-circle { width: 140px; height: 140px; }
-  .app-container .stat-chips { width: 140px; }
-  .app-container h1.name { font-size: 26px; }
-  .app-container .page-title { font-size: 22px; }
-  .app-container .section-title { font-size: 24px; }
-  .app-container .btn-gold, .app-container .btn-outline { padding: 8px 14px; font-size: 12px; }
+  .app-container .page { padding: 24px 10px; }
+  .app-container .profile-circle { width: 120px; height: 120px; }
+  .app-container .stat-chips { width: 120px; }
+  .app-container h1.name { font-size: 22px; }
+  .app-container .page-title { font-size: 20px; }
+  .app-container .btn-gold, .app-container .btn-outline { padding: 6px 12px; font-size: 11px; }
 }
