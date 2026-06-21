@@ -1,10 +1,20 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [page, setPage] = useState('home')
+  // ─── LOAD PAGE FROM LOCALSTORAGE ───
+  const [page, setPage] = useState(() => {
+    const saved = localStorage.getItem('portfolioPage')
+    return saved || 'home'
+  })
+
+  // ─── SAVE PAGE TO LOCALSTORAGE ───
+  useEffect(() => {
+    localStorage.setItem('portfolioPage', page)
+  }, [page])
 
   // ─── STATE FROM ADMIN ───
   const [profile, setProfile] = useState({
@@ -84,6 +94,39 @@ function App() {
     return () => window.removeEventListener('storage', handleStorageChange)
   }, [])
 
+  // ─── SEND EMAIL ───
+  const sendEmail = (e) => {
+    e.preventDefault()
+    
+    const form = document.getElementById('contactForm')
+    const status = document.getElementById('formStatus')
+    const btn = document.getElementById('sendBtn')
+    
+    status.textContent = 'Sending...'
+    status.style.color = 'var(--gold)'
+    btn.disabled = true
+    
+    emailjs.sendForm(
+      'service_lz7rmxf',
+      'template_uymx0ji',
+      form,
+      'u0mk6G3aUao4yBp4g'
+    ).then(() => {
+      status.textContent = 'Message sent successfully!'
+      status.style.color = '#4ade80'
+      form.reset()
+      btn.disabled = false
+    }).catch((error) => {
+      status.textContent = 'Failed to send. Please try again.'
+      status.style.color = '#f87171'
+      btn.disabled = false
+      console.error('Email error:', error.text || error)
+    })
+  }
+
+  // ─── NAV LINKS ───
+  const navLinks = ['home', 'about', 'skills', 'projects', 'emblem', 'contact']
+
   // ─── TIMELINE DATA ───
   const timeline = [
     { yr: '2024 — Present', ttl: 'Narra — Video Streaming Platform', sub: 'React · Node.js · MongoDB · Socket.IO · Render' },
@@ -127,18 +170,28 @@ function App() {
 
       {/* ─── NAV ─── */}
       <nav>
-        <div className="logo-text">
+        <div className="logo-text" style={{ flexShrink: 0 }}>
           <img src="/img/Enos Emblem.png" alt="Enos Emblem" className="logo-emblem" />
           EO<span>.</span>
         </div>
-        <div className="nav-tabs">
-          {['home','about','skills','projects','emblem','contact'].map(p => (
-            <button key={p} className={`nav-tab${page===p?' active':''}`} onClick={()=>setPage(p)}>
-              {p.charAt(0).toUpperCase()+p.slice(1)}
-            </button>
+        <div className="nav-tabs" style={{ flexShrink: 0 }}>
+          {navLinks.map(p => (
+            <a
+              key={p}
+              href={`#${p}`}
+              className={`nav-tab${page === p ? ' active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault()
+                setPage(p)
+              }}
+            >
+              {p.charAt(0).toUpperCase() + p.slice(1)}
+            </a>
           ))}
         </div>
-        <div className="status-dot"><div className="dot"></div> Open to work</div>
+        <div className="status-dot" style={{ flexShrink: 0, marginLeft: 'auto' }}>
+          <div className="dot"></div> Open to work
+        </div>
       </nav>
 
       {/* ─── HOME ─── */}
@@ -180,8 +233,8 @@ function App() {
                 <img src={profile.picture} alt={profile.name} className="profile-img"/>
               </div>
               <div className="stat-chips">
-                <div className="stat-chip"><span className="label">Projects</span><span className="value">{projects.length}+</span></div>
-                <div className="stat-chip"><span className="label">Experience</span><span className="value">2 yrs</span></div>
+                <div className="stat-chip"><span className="label">Projects</span><span className="value">30+</span></div>
+                <div className="stat-chip"><span className="label">Experience</span><span className="value">4 yrs</span></div>
                 <div className="stat-chip"><span className="label">Commits</span><span className="value">111</span></div>
               </div>
             </div>
@@ -459,17 +512,18 @@ function App() {
                 </a>
               </div>
             </div>
-            <div className="form-grid">
+            <form className="form-grid" id="contactForm" onSubmit={sendEmail}>
               <div className="input-row">
-                <input className="field" type="text" placeholder="Your name"/>
-                <input className="field" type="email" placeholder="Email address"/>
+                <input className="field" type="text" name="name" placeholder="Your name" required/>
+                <input className="field" type="email" name="email" placeholder="Email address" required/>
               </div>
-              <input className="field" type="text" placeholder="Subject"/>
-              <textarea className="field" placeholder="Your message..." rows={5}></textarea>
-              <button className="btn-gold" style={{alignSelf:'flex-start',padding:'12px 28px'}}>
+              <input className="field" type="text" name="subject" placeholder="Subject" required/>
+              <textarea className="field" name="message" placeholder="Your message..." rows={5} required></textarea>
+              <button type="submit" className="btn-gold" style={{alignSelf:'flex-start',padding:'12px 28px'}} id="sendBtn">
                 <i className="ti ti-send"></i> Send Message
               </button>
-            </div>
+              <div id="formStatus" style={{color:'var(--gold)', fontSize:'14px', marginTop:'8px'}}></div>
+            </form>
           </div>
         </section>
       )}

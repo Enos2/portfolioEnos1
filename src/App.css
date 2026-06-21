@@ -101,6 +101,7 @@
   font-size: 13px;
   font-weight: 500;
   transition: all 0.2s;
+  text-decoration: none;
 }
 
 .app-container .nav-tab:hover { color: #fff; }
@@ -112,6 +113,7 @@
   gap: 8px;
   font-size: 12px;
   color: var(--muted);
+  flex-shrink: 0;
 }
 
 .app-container .dot {
@@ -732,13 +734,125 @@
   .app-container .projects-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 640px) {
-  .app-container nav { padding: 0 16px; flex-wrap: wrap; height: auto; padding: 12px 16px; gap: 8px; }
-  .app-container .page { padding: 40px 20px; }
-  .app-container h1.name { font-size: 40px; letter-spacing: -2px; }
-  .app-container .page-title { font-size: 30px; }
+@media (max-width: 768px) {
+  .app-container nav {
+    padding: 0 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 4px;
+    height: 56px;
+  }
+
+  .app-container nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-container .logo-text {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .app-container .logo-emblem {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+  }
+
+  .app-container .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2px;
+    padding: 3px 6px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    background: transparent;
+    border: none;
+  }
+
+  .app-container .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-container .nav-tab {
+    padding: 4px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 6px;
+  }
+
+  .app-container .status-dot {
+    font-size: 10px;
+    flex-shrink: 0;
+    gap: 4px;
+    margin-left: auto;
+    padding-left: 4px;
+  }
+
+  .app-container .status-dot .dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .app-container .page { padding: 40px 16px; }
+  .app-container h1.name { font-size: 32px; letter-spacing: -1.5px; }
+  .app-container .page-title { font-size: 26px; }
   .app-container .skills-grid, .app-container .projects-grid { grid-template-columns: 1fr; }
   .app-container .input-row { grid-template-columns: 1fr; }
-  .app-container .profile-circle { width: 200px; height: 200px; }
-  .app-container .stat-chips { width: 200px; }
+  .app-container .profile-circle { width: 180px; height: 180px; }
+  .app-container .stat-chips { width: 180px; }
+  .app-container .bio { font-size: 14px; }
+  .app-container .btn-gold, .app-container .btn-outline { padding: 10px 20px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .app-container nav {
+    padding: 0 8px;
+    height: 48px;
+  }
+
+  .app-container .logo-text {
+    font-size: 13px;
+  }
+
+  .app-container .logo-emblem {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app-container .nav-tabs {
+    padding: 2px 4px;
+    gap: 1px;
+  }
+
+  .app-container .nav-tab {
+    padding: 3px 6px;
+    font-size: 9px;
+    border-radius: 4px;
+  }
+
+  .app-container .status-dot {
+    font-size: 8px;
+  }
+
+  .app-container .status-dot .dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .app-container .page { padding: 32px 12px; }
+  .app-container .profile-circle { width: 140px; height: 140px; }
+  .app-container .stat-chips { width: 140px; }
+  .app-container h1.name { font-size: 26px; }
+  .app-container .page-title { font-size: 22px; }
+  .app-container .section-title { font-size: 24px; }
+  .app-container .btn-gold, .app-container .btn-outline { padding: 8px 14px; font-size: 12px; }
 }
