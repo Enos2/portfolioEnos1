@@ -64,7 +64,7 @@ const TABS = [
 function Admin({ onLogout }) {
   const [activeTab, setActiveTab] = useState('profile')
   const [profile, setProfile] = useState({
-    name: 'Enos Omondi Omenda',
+    name: 'Enos Omondi',
     title: 'Full-Stack Developer',
     bio: 'Building modern web platforms end-to-end — from pixel-precise interfaces to scalable backend systems.',
     location: 'Nairobi, Kenya',

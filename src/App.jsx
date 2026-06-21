@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
@@ -10,14 +9,14 @@ function App() {
   // ─── STATE FROM ADMIN ───
   const [profile, setProfile] = useState({
     name: 'Enos Omondi Omenda',
-    title: 'Full-Stack Developer',
+    title: 'Software Developer',
     bio: 'Building modern web platforms end-to-end — from pixel-precise interfaces to scalable backend systems. Currently working on Narra, a video streaming platform with real-time features.',
     location: 'Nairobi, Kenya',
     email: 'enosomenda1@gmail.com',
     education: 'Computer Science, Zetech University',
     stack: 'React · Node.js · MongoDB',
-    picture: '/emojis/developer.jpg',
-    cv: '/Omenda Enos.pdf',
+    picture: '/img/Enos B.jpg',
+    cv: '/Enos O. Omenda.pdf',
     github: 'https://github.com/Enos2',
     twitter: '#',
     linkedin: '#',
@@ -96,7 +95,7 @@ function App() {
   const techChips = ['Express.js', 'MongoDB', 'Socket.IO', 'Firebase', 'REST APIs', 'Git / GitHub', 'PHP / Laravel', 'MySQL', 'Render', 'Vite']
 
   return (
-    <div id="root">
+    <div className="app-container">
       {/* Animated SVG background */}
       <div className="bg-anim" aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -128,9 +127,12 @@ function App() {
 
       {/* ─── NAV ─── */}
       <nav>
-        <div className="logo-text">EO<span>.</span></div>
+        <div className="logo-text">
+          <img src="/img/Enos Emblem.png" alt="Enos Emblem" className="logo-emblem" />
+          EO<span>.</span>
+        </div>
         <div className="nav-tabs">
-          {['home','about','skills','projects','contact'].map(p => (
+          {['home','about','skills','projects','emblem','contact'].map(p => (
             <button key={p} className={`nav-tab${page===p?' active':''}`} onClick={()=>setPage(p)}>
               {p.charAt(0).toUpperCase()+p.slice(1)}
             </button>
@@ -147,7 +149,10 @@ function App() {
               <div className="eyebrow">
                 <i className="ti ti-map-pin" aria-hidden="true"></i> {profile.location}
               </div>
-              <h1 className="name">{profile.name}<br/><span className="gold">Omenda</span></h1>
+              <h1 className="name">
+                {profile.name.replace('Omenda', '').trim()}<br/>
+                <span className="gold">Omenda</span>
+              </h1>
               <div className="role-line">// <span>{profile.title}</span> · React · Node.js · MongoDB</div>
               <p className="bio">{profile.bio}</p>
               <div className="cta-row">
@@ -273,6 +278,152 @@ function App() {
                 </a>
               </div>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* ─── EMBLEM PAGE ─── */}
+      {page === 'emblem' && (
+        <section className="page emblem-page">
+          {/* Centered Title */}
+          <div className="emblem-header">
+            <div className="section-label" style={{ textAlign: 'center' }}>Family Legacy</div>
+            <div className="page-title" style={{ textAlign: 'center' }}>The <span className="gold">Inevia</span> Emblem</div>
+          </div>
+
+          {/* Dictionary Layout: Left = Emblem, Right = Writing */}
+          <div className="emblem-dictionary">
+            {/* Left Column - Emblem */}
+            <div className="emblem-left">
+              <div className="emblem-display">
+                <img src="/img/Enos Emblem.png" alt="Inevia Emblem" className="emblem-large" />
+                <div className="emblem-motto">
+                  <span className="motto-quote">"</span>
+                  With strength and wisdom,<br />
+                  <span className="gold">power is inevitable.</span>
+                  <span className="motto-quote">"</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Writing */}
+            <div className="emblem-right">
+              <div className="emblem-meaning">
+                <h3>The Meaning of <span className="gold">Inevia</span></h3>
+                <p className="emblem-intro">
+                  <strong>Inevia</strong> comes from the motto: <em>"With strength and wisdom, power is inevitable."</em>
+                  The name represents the belief that true and lasting power comes from combining intelligence 
+                  with strength — rather than relying on either one alone.
+                </p>
+
+                {/* Animals Section */}
+                <h4><i className="ti ti-eye" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Blue Owl</h4>
+                <p>The owl is the central symbol of the emblem. It represents:</p>
+                <ul>
+                  <li>Wisdom</li>
+                  <li>Knowledge</li>
+                  <li>Strategic thinking</li>
+                  <li>Foresight</li>
+                  <li>Leadership through intelligence</li>
+                </ul>
+                <p>
+                  The <strong>blue color</strong> symbolizes loyalty, trust, stability, and truth. 
+                  The owl occupies the highest position because wisdom guides all other forms of power.
+                </p>
+
+                <h4><i className="ti ti-crown" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> Two Red Lions</h4>
+                <p>The lions represent:</p>
+                <ul>
+                  <li>Courage</li>
+                  <li>Strength</li>
+                  <li>Authority</li>
+                  <li>Protection</li>
+                  <li>Determination</li>
+                </ul>
+                <p>
+                  Having <strong>two lions</strong> symbolizes balance: strength paired with wisdom, 
+                  defense of family and values, and guardianship of the legacy.
+                </p>
+                <p>
+                  The <strong>red color</strong> symbolizes valor, sacrifice, passion, and fearlessness.
+                </p>
+
+                {/* Tools Section */}
+                <h4><i className="ti ti-sword" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Sword</h4>
+                <p>
+                  The sword represents justice, readiness, honor, and the ability to defend what is right. 
+                  It is placed above the owl because <strong>wisdom should direct power and force</strong>.
+                </p>
+                <p>
+                  The sword means: <em>"Power exists, but it is controlled by wisdom."</em>
+                </p>
+
+                <h4><i className="ti ti-shield" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Black Shield</h4>
+                <p>
+                  The shield represents protection, family legacy, endurance, and resilience. 
+                  The <strong>black color</strong> symbolizes strength under adversity, discipline, resolve, and dignity.
+                </p>
+                <p>
+                  The shield is the foundation that the other symbols protect.
+                </p>
+
+                {/* Colors Section */}
+                <h4><i className="ti ti-palette" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Colors</h4>
+                <div className="color-grid">
+                  <div className="color-item">
+                    <div className="color-swatch blue"></div>
+                    <span><strong>Blue</strong> — Wisdom, Truth, Loyalty, Knowledge</span>
+                  </div>
+                  <div className="color-item">
+                    <div className="color-swatch black"></div>
+                    <span><strong>Black</strong> — Strength, Endurance, Authority, Determination</span>
+                  </div>
+                  <div className="color-item">
+                    <div className="color-swatch red"></div>
+                    <span><strong>Red</strong> — Courage, Sacrifice, Valor, Action</span>
+                  </div>
+                  <div className="color-item">
+                    <div className="color-swatch gold"></div>
+                    <span><strong>Gold</strong> — Excellence, Achievement, Honor, Prosperity</span>
+                  </div>
+                </div>
+
+                {/* Banners Section */}
+                <h4><i className="ti ti-flag" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Banners</h4>
+                <p>
+                  <strong>OMENDA</strong> — The family name at the top signifies heritage, ancestry, and family identity. 
+                  It stands above the emblem because the family legacy guides future generations.
+                </p>
+                <p>
+                  <strong>ENOS</strong> — Your name at the bottom signifies the current bearer of the emblem, 
+                  personal responsibility for carrying the legacy forward.
+                </p>
+
+                {/* Motto Section */}
+                <h4><i className="ti ti-star" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> The Motto</h4>
+                <div className="motto-box">
+                  <p className="motto-text">
+                    "With strength and wisdom,<br />
+                    <span className="gold">power is inevitable.</span>"
+                  </p>
+                  <p className="motto-meaning">
+                    <strong>Meaning:</strong> Wisdom without strength cannot always act. 
+                    Strength without wisdom often destroys itself. 
+                    When both are united, success becomes difficult to stop.
+                  </p>
+                </div>
+
+                {/* Complete Meaning */}
+                <h4><i className="ti ti-archive" style={{ color: 'var(--gold)', marginRight: '8px' }}></i> Complete Meaning of the Emblem</h4>
+                <p className="emblem-complete">
+                  <strong>Inevia</strong> tells the story of a family and individual who believe that 
+                  <strong>wisdom must lead strength</strong>, courage must protect knowledge, and 
+                  power should be earned through discipline, honor, and understanding. 
+                  The owl thinks, the lions act, the sword defends, and the shield protects — 
+                  all united by the belief that <strong>"With strength and wisdom, power is inevitable."</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       )}
