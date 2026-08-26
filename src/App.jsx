@@ -47,21 +47,24 @@ function App() {
   const [projects, setProjects] = useState([
     {
       title: 'Narra',
-      desc: 'Video streaming platform with pay-per-view, live streaming, real-time messaging, and a full admin moderation system.',
+      desc: 'Modern pay-per-view video streaming platform with live streaming, real-time messaging, admin moderation, and content monetization for creators. Built with React, Node.js, MongoDB, and Socket.IO.',
       tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
-      href: 'https://github.com/Enos2/Narra'
+      repo: 'https://github.com/Enos2/Narra.git',
+      live: 'https://narrasea.onrender.com/'
     },
     {
-      title: 'Car Rental System',
-      desc: 'Car rental management platform with booking features, vehicle listings, and a full admin management interface.',
-      tags: ['PHP', 'Laravel', 'MySQL'],
-      href: 'https://github.com/Enos2/car-rent'
+      title: 'Voxly',
+      desc: 'Live audio streaming platform where creators go live with voice, interact with listeners, save replays, and monetize through gifts and premium features. Built with React Native, Node.js, Express, MongoDB, and LiveKit.',
+      tags: ['React Native', 'Node.js', 'Express', 'MongoDB', 'LiveKit'],
+      repo: 'https://github.com/Enos2/Voxly.git',
+      live: null
     },
     {
-      title: 'Library Management',
-      desc: 'System for tracking books, members, borrowing history, and library inventory with clean reporting.',
-      tags: ['PHP', 'MySQL'],
-      href: 'https://github.com/Enos2/library-mng-system'
+      title: 'Atlas OS',
+      desc: 'A Personal Artificial Intelligence Operating Layer — an intelligent desktop assistant with voice interaction, permanent memory, desktop automation, and a modular plugin system. Built with Electron, React, Python, FastAPI, and SQLite.',
+      tags: ['Electron', 'React', 'Python', 'FastAPI', 'SQLite'],
+      repo: 'https://github.com/Enos2/AtlasOS.git',
+      live: null
     }
   ])
 
@@ -131,12 +134,13 @@ function App() {
   // ─── TIMELINE DATA ───
   const timeline = [
     { yr: '2024 — Present', ttl: 'Narra — Video Streaming Platform', sub: 'React · Node.js · MongoDB · Socket.IO · Render' },
-    { yr: '2023', ttl: 'Car Rental & Library Management Systems', sub: 'PHP · Laravel · MySQL' },
+    { yr: '2024 — Present', ttl: 'Voxly — Live Audio Streaming', sub: 'React Native · Node.js · Express · MongoDB · LiveKit' },
+    { yr: '2024 — Present', ttl: 'Atlas OS — AI Operating Layer', sub: 'Electron · React · Python · FastAPI · SQLite' },
     { yr: '2022 — 2024', ttl: 'Computer Science — Zetech University', sub: 'Nairobi, Kenya' }
   ]
 
   // ─── TECH CHIPS ───
-  const techChips = ['Express.js', 'MongoDB', 'Socket.IO', 'Firebase', 'REST APIs', 'Git / GitHub', 'PHP / Laravel', 'MySQL', 'Render', 'Vite']
+  const techChips = ['Express.js', 'MongoDB', 'Socket.IO', 'Firebase', 'REST APIs', 'Git / GitHub', 'PHP / Laravel', 'MySQL', 'Render', 'Vite', 'React Native', 'LiveKit', 'Electron', 'Python', 'FastAPI']
 
   return (
     <div className="app-container">
@@ -165,8 +169,8 @@ function App() {
       {page === 'projects' && (
         <SEO 
           title="Projects - Enos Omondi Omenda | Portfolio"
-          description="Explore projects built by Enos Omondi Omenda including Narra, a live streaming platform, and other full-stack applications."
-          keywords="Enos Omenda Projects, Narra, Live Streaming Platform, Full-Stack Projects, React Projects"
+          description="Explore projects built by Enos Omondi Omenda including Narra, Voxly, and Atlas OS."
+          keywords="Enos Omenda Projects, Narra, Voxly, Atlas OS, Full-Stack Projects"
         />
       )}
       {page === 'emblem' && (
@@ -371,9 +375,16 @@ function App() {
                 <div className="proj-title">{p.title}</div>
                 <div className="proj-desc">{p.desc}</div>
                 <div className="proj-tags">{p.tags.map(t => <span className="tag" key={t}>{t}</span>)}</div>
-                <a href={p.href} target="_blank" rel="noopener" className="proj-link">
-                  <i className="ti ti-brand-github"></i> View on GitHub <i className="ti ti-arrow-right"></i>
-                </a>
+                <div className="proj-links">
+                  <a href={p.repo} target="_blank" rel="noopener" className="proj-link">
+                    <i className="ti ti-brand-github"></i> Repository
+                  </a>
+                  {p.live && (
+                    <a href={p.live} target="_blank" rel="noopener" className="proj-link live-link">
+                      <i className="ti ti-world"></i> Live Demo
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>

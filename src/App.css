@@ -11,6 +11,8 @@
   --text: #f0f0f0;
   --muted: #777;
   --border: rgba(255, 215, 0, 0.12);
+  --green: #4ade80;
+  --green-dim: rgba(74, 222, 128, 0.1);
 }
 
 .app-container * {
@@ -120,8 +122,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px #4ade80;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
   animation: pulse 2s infinite;
 }
 
@@ -428,8 +430,45 @@
 .app-container .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
 .app-container .tag { background: var(--gold-dim); border: 1px solid rgba(255,215,0,0.2); color: var(--gold); padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; }
 
-.app-container .proj-link { color: var(--muted); font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; transition: color 0.2s; }
-.app-container .proj-link:hover { color: var(--gold); }
+/* ─── PROJECT LINKS ─── */
+.app-container .proj-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.app-container .proj-link {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.app-container .proj-link:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.app-container .proj-link.live-link {
+  color: var(--green);
+}
+
+.app-container .proj-link.live-link:hover {
+  color: #86efac;
+  border-bottom-color: var(--green);
+}
+
+.app-container .proj-link i {
+  font-size: 16px;
+}
 
 /* ─── CONTACT ─── */
 .app-container .contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 36px; }
@@ -805,7 +844,8 @@
   .app-container .page { padding: 40px 16px; }
   .app-container h1.name { font-size: 32px; letter-spacing: -1.5px; }
   .app-container .page-title { font-size: 26px; }
-  .app-container .skills-grid, .app-container .projects-grid { grid-template-columns: 1fr; }
+  .app-container .skills-grid { grid-template-columns: 1fr; }
+  .app-container .projects-grid { grid-template-columns: 1fr; }
   .app-container .input-row { grid-template-columns: 1fr; }
   .app-container .profile-circle { width: 180px; height: 180px; }
   .app-container .stat-chips { width: 180px; }
