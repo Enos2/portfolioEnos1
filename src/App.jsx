@@ -39,6 +39,7 @@ function App() {
     { name: 'HTML / CSS', pct: 90 },
     { name: 'Java', pct: 87 },
     { name: 'JavaScript', pct: 70 },
+    { name: 'TypeScript', pct: 65 },
     { name: 'Python', pct: 70 },
     { name: 'React.js', pct: 65 },
     { name: 'Node.js', pct: 60 }
@@ -49,22 +50,26 @@ function App() {
       title: 'Narra',
       desc: 'Modern pay-per-view video streaming platform with live streaming, real-time messaging, admin moderation, and content monetization for creators. Built with React, Node.js, MongoDB, and Socket.IO.',
       tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
+      image: '/img/narra-sea.png',
       repo: 'https://github.com/Enos2/Narra.git',
       live: 'https://narrasea.onrender.com/'
     },
     {
-      title: 'Voxly',
-      desc: 'Live audio streaming platform where creators go live with voice, interact with listeners, save replays, and monetize through gifts and premium features. Built with React Native, Node.js, Express, MongoDB, and LiveKit.',
-      tags: ['React Native', 'Node.js', 'Express', 'MongoDB', 'LiveKit'],
-      repo: 'https://github.com/Enos2/Voxly.git',
-      live: null
+      title: 'Ticket Take It',
+      desc: 'Event ticketing platform with buyer, seller and admin roles, early-bird and group ticket tiers, and event management for organisers. Built with React, TypeScript, Node.js, Prisma, and PostgreSQL.',
+      tags: ['React', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL'],
+      image: '/img/ticket-take-it.png',
+      repo: 'https://github.com/Enos2/ticket-take-it.git',
+      live: 'https://ticket-take-it.web.app/'
     },
     {
-      title: 'Atlas OS',
-      desc: 'A Personal Artificial Intelligence Operating Layer — an intelligent desktop assistant with voice interaction, permanent memory, desktop automation, and a modular plugin system. Built with Electron, React, Python, FastAPI, and SQLite.',
-      tags: ['Electron', 'React', 'Python', 'FastAPI', 'SQLite'],
-      repo: 'https://github.com/Enos2/AtlasOS.git',
-      live: null
+      title: 'Rotavo Motors',
+      desc: 'Car marketplace for buying and selling vehicles, with listings, viewing bookings, auctions, and live USD to KES pricing. Built with React, Node.js, Express, MongoDB, and Tailwind CSS.',
+      tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind'],
+      image: '/img/rotavo-motors.png',
+      status: 'In development',
+      repo: 'https://github.com/Enos2/car-marketplace.git',
+      live: 'https://rotavo-motors.web.app/'
     }
   ])
 
@@ -134,13 +139,60 @@ function App() {
   // ─── TIMELINE DATA ───
   const timeline = [
     { yr: '2024 — Present', ttl: 'Narra — Video Streaming Platform', sub: 'React · Node.js · MongoDB · Socket.IO · Render' },
-    { yr: '2024 — Present', ttl: 'Voxly — Live Audio Streaming', sub: 'React Native · Node.js · Express · MongoDB · LiveKit' },
-    { yr: '2024 — Present', ttl: 'Atlas OS — AI Operating Layer', sub: 'Electron · React · Python · FastAPI · SQLite' },
+    { yr: '2026 — Present', ttl: 'Ticket Take It — Event Ticketing', sub: 'React · TypeScript · Node.js · Prisma · PostgreSQL' },
+    { yr: '2026 — Present', ttl: 'Rotavo Motors — Car Marketplace', sub: 'React · Node.js · Express · MongoDB · Tailwind CSS' },
     { yr: '2022 — 2024', ttl: 'Computer Science — Zetech University', sub: 'Nairobi, Kenya' }
   ]
 
-  // ─── TECH CHIPS ───
-  const techChips = ['Express.js', 'MongoDB', 'Socket.IO', 'Firebase', 'REST APIs', 'Git / GitHub', 'PHP / Laravel', 'MySQL', 'Render', 'Vite', 'React Native', 'LiveKit', 'Electron', 'Python', 'FastAPI']
+  // ─── M-PESA FLOW (Ticket Take It) ───
+  const mpesaFlow = [
+    { icon: 'ti-device-mobile', ttl: 'STK Push', txt: 'The customer gets a payment prompt on their phone and enters their M-Pesa PIN.' },
+    { icon: 'ti-webhook', ttl: 'Secure callback', txt: 'Safaricom reports the result to a secret-protected endpoint, validated with Zod.' },
+    { icon: 'ti-shield-check', ttl: 'Verify', txt: 'The callback is never trusted alone. Every success is confirmed with an STK Query.' },
+    { icon: 'ti-refresh', ttl: 'Reconcile', txt: 'A job runs every minute to catch lost callbacks and close unanswered prompts.' },
+    { icon: 'ti-receipt', ttl: 'Receipts & refunds', txt: 'Confirmed payments become orders with receipts, and refunds are handled.' }
+  ]
+
+  // ─── SKILL GROUPS (what I used, and where) ───
+  const skillGroups = [
+    { icon: 'ti-layout-dashboard', title: 'Frontend', items: [
+      { name: 'React', used: ['Narra', 'Ticket Take It', 'Rotavo'] },
+      { name: 'TypeScript', used: ['Ticket Take It'] },
+      { name: 'Tailwind CSS', used: ['Ticket Take It', 'Rotavo'] },
+      { name: 'Zustand · TanStack Query', used: ['Ticket Take It'] },
+      { name: 'React Hook Form · Zod', used: ['Ticket Take It'] }
+    ]},
+    { icon: 'ti-server', title: 'Backend', items: [
+      { name: 'Node.js · Express', used: ['Narra', 'Ticket Take It', 'Rotavo'] },
+      { name: 'REST API design', used: ['Narra', 'Ticket Take It', 'Rotavo'] },
+      { name: 'Prisma ORM', used: ['Ticket Take It'] },
+      { name: 'Scheduled jobs (cron)', used: ['Narra', 'Rotavo'] },
+      { name: 'File uploads · Sharp', used: ['Narra', 'Rotavo'] }
+    ]},
+    { icon: 'ti-database', title: 'Databases', items: [
+      { name: 'MongoDB · Mongoose', used: ['Narra', 'Rotavo'] },
+      { name: 'PostgreSQL (Neon)', used: ['Ticket Take It'] },
+      { name: 'MySQL', used: ['Library System', 'Car Rental'] }
+    ]},
+    { icon: 'ti-shield-lock', title: 'Auth & Security', items: [
+      { name: 'JWT access and refresh tokens', used: ['Ticket Take It', 'Rotavo'] },
+      { name: 'Role-based access control', used: ['Narra', 'Ticket Take It'] },
+      { name: 'Helmet · Rate limiting · CORS', used: ['Ticket Take It', 'Rotavo'] },
+      { name: 'Password hashing (bcrypt)', used: ['Narra', 'Ticket Take It', 'Rotavo'] }
+    ]},
+    { icon: 'ti-broadcast', title: 'Real-time & Media', items: [
+      { name: 'Socket.IO real-time chat', used: ['Narra'] },
+      { name: 'Live streaming (RTMP · HLS · FFmpeg)', used: ['Narra'] },
+      { name: 'Cloudinary media storage', used: ['Narra'] },
+      { name: 'QR ticket generation and scanning', used: ['Ticket Take It'] }
+    ]},
+    { icon: 'ti-rocket', title: 'Deploy & Quality', items: [
+      { name: 'Render · Firebase Hosting', used: ['Narra', 'Ticket Take It', 'Rotavo'] },
+      { name: 'Git · GitHub', used: ['All projects'] },
+      { name: 'Vitest automated tests', used: ['Ticket Take It'] },
+      { name: 'Pino logging · Sentry', used: ['Ticket Take It'] }
+    ]}
+  ]
 
   return (
     <div className="app-container">
@@ -169,8 +221,8 @@ function App() {
       {page === 'projects' && (
         <SEO 
           title="Projects - Enos Omondi Omenda | Portfolio"
-          description="Explore projects built by Enos Omondi Omenda including Narra, Voxly, and Atlas OS."
-          keywords="Enos Omenda Projects, Narra, Voxly, Atlas OS, Full-Stack Projects"
+          description="Explore projects built by Enos Omondi Omenda including Narra, Ticket Take It, and Rotavo Motors."
+          keywords="Enos Omenda Projects, Narra, Ticket Take It, Rotavo Motors, Full-Stack Projects"
         />
       )}
       {page === 'emblem' && (
@@ -294,8 +346,11 @@ function App() {
       {/* ─── ABOUT ─── */}
       {page === 'about' && (
         <section className="page">
-          <div className="section-label">Who I am</div>
-          <div className="page-title">About <span className="gold">Me</span></div>
+          <div className="section-head">
+            <div className="section-label">Who I am</div>
+            <div className="page-title">About <span className="gold">Me</span></div>
+            <div className="head-spacer" aria-hidden="true"></div>
+          </div>
           <div className="about-layout">
             <div>
               <div className="card" style={{marginBottom:'16px'}}>
@@ -342,8 +397,17 @@ function App() {
       {/* ─── SKILLS ─── */}
       {page === 'skills' && (
         <section className="page">
-          <div className="section-label">What I know</div>
-          <div className="page-title">My <span className="gold">Skills</span></div>
+          <div className="section-head">
+            <div className="section-label">What I know</div>
+            <div className="page-title">My <span className="gold">Skills</span></div>
+            <div className="head-spacer" aria-hidden="true"></div>
+          </div>
+          <p className="skills-intro">
+            Every skill here comes from something I have built. The tags show where I used it.
+          </p>
+
+          {/* Core languages */}
+          <div className="skills-sub">Core languages</div>
           <div className="skills-grid">
             {skills.map(s => (
               <div className="skill-card" key={s.name}>
@@ -355,9 +419,61 @@ function App() {
               </div>
             ))}
           </div>
-          <div className="tech-chips">
-            {techChips.map(t => (
-              <div className="tech-chip" key={t}>{t}</div>
+
+          {/* Featured: M-Pesa */}
+          <div className="skills-sub">Featured integration</div>
+          <div className="pay-feature">
+            <div className="pay-head">
+              <div className="pay-icon"><i className="ti ti-brand-cashapp" aria-hidden="true"></i></div>
+              <div className="pay-head-text">
+                <div className="pay-title">M-Pesa Daraja payments</div>
+                <div className="pay-sub">Built into Ticket Take It for Daraja sandbox and production</div>
+              </div>
+              <span className="pay-badge">Ticket Take It</span>
+            </div>
+            <p className="pay-desc">
+              A full mobile-money payment flow, from the STK Push prompt to verified, reconciled orders.
+              Card payments are supported through Paystack.
+            </p>
+            <div className="pay-flow">
+              {mpesaFlow.map((st, i) => (
+                <div className="pay-step" key={st.ttl}>
+                  <div className="pay-step-top">
+                    <span className="pay-step-num">{String(i + 1).padStart(2, '0')}</span>
+                    <i className={`ti ${st.icon}`} aria-hidden="true"></i>
+                  </div>
+                  <div className="pay-step-ttl">{st.ttl}</div>
+                  <div className="pay-step-txt">{st.txt}</div>
+                </div>
+              ))}
+            </div>
+            <div className="pay-tags">
+              {['Daraja API', 'STK Push', 'STK Query', 'Callbacks', 'Reconciliation', 'Paystack'].map(t => (
+                <span className="tag" key={t}>{t}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Skills by area */}
+          <div className="skills-sub">Skills by area</div>
+          <div className="skill-groups">
+            {skillGroups.map(g => (
+              <div className="group-card" key={g.title}>
+                <div className="group-head">
+                  <div className="group-icon"><i className={`ti ${g.icon}`} aria-hidden="true"></i></div>
+                  <div className="group-title">{g.title}</div>
+                </div>
+                <ul className="group-list">
+                  {g.items.map(it => (
+                    <li key={it.name}>
+                      <span className="group-skill">{it.name}</span>
+                      <span className="group-used">
+                        {it.used.map(u => <span className="used-tag" key={u}>{u}</span>)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </section>
@@ -366,11 +482,20 @@ function App() {
       {/* ─── PROJECTS ─── */}
       {page === 'projects' && (
         <section className="page">
-          <div className="section-label">What I've built</div>
-          <div className="page-title">My <span className="gold">Projects</span></div>
+          <div className="section-head">
+            <div className="section-label">What I've built</div>
+            <div className="page-title">My <span className="gold">Projects</span></div>
+            <div className="head-spacer" aria-hidden="true"></div>
+          </div>
           <div className="projects-grid">
             {projects.map((p, i) => (
               <div className="proj-card" key={i}>
+                {p.image && (
+                  <div className="proj-image">
+                    <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+                    {p.status && <span className="proj-status">{p.status}</span>}
+                  </div>
+                )}
                 <div className="proj-num">{String(i + 1).padStart(2, '0')}</div>
                 <div className="proj-title">{p.title}</div>
                 <div className="proj-desc">{p.desc}</div>
@@ -540,8 +665,11 @@ function App() {
       {/* ─── CONTACT ─── */}
       {page === 'contact' && (
         <section className="page">
-          <div className="section-label">Get in touch</div>
-          <div className="page-title">Contact <span className="gold">Me</span></div>
+          <div className="section-head">
+            <div className="section-label">Get in touch</div>
+            <div className="page-title">Contact <span className="gold">Me</span></div>
+            <div className="head-spacer" aria-hidden="true"></div>
+          </div>
           <div className="contact-layout">
             <div>
               <div className="contact-card">

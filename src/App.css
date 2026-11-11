@@ -409,6 +409,122 @@
   color: var(--muted);
 }
 
+/* ─── SECTION HEADINGS: label on the left, title centered ─── */
+.app-container .section-head {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.app-container .section-head .section-label { margin: 0; text-align: left; }
+.app-container .section-head .page-title { margin: 0; text-align: center; }
+.app-container .skills-intro { margin-left: auto; margin-right: auto; text-align: center; }
+
+@media (max-width: 700px) {
+  .app-container .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 28px; }
+  .app-container .section-head .page-title { order: 1; }
+  .app-container .section-head .section-label { order: 2; text-align: center; }
+  .app-container .head-spacer { display: none; }
+}
+
+/* ─── SKILLS (extended) ─── */
+.app-container .skills-intro { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 620px; margin-bottom: 28px; }
+.app-container .skills-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+  margin: 8px 0 14px;
+}
+
+/* Featured payment integration */
+.app-container .pay-feature {
+  background: linear-gradient(145deg, rgba(255,215,0,0.06), var(--surface) 55%);
+  border: 1px solid rgba(255,215,0,0.28);
+  border-radius: 18px;
+  padding: 26px;
+  margin-bottom: 32px;
+}
+.app-container .pay-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.app-container .pay-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: var(--gold-dim); border: 1px solid rgba(255,215,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 22px; flex-shrink: 0;
+}
+.app-container .pay-head-text { flex: 1; min-width: 200px; }
+.app-container .pay-title { font-size: 20px; font-weight: 700; }
+.app-container .pay-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.app-container .pay-badge {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--green);
+  background: var(--green-dim); border: 1px solid rgba(74,222,128,0.3);
+  padding: 5px 12px; border-radius: 100px;
+}
+.app-container .pay-desc { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 680px; margin-bottom: 22px; }
+.app-container .pay-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
+.app-container .pay-step {
+  position: relative;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 14px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.app-container .pay-step:hover { border-color: rgba(255,215,0,0.45); transform: translateY(-3px); }
+.app-container .pay-step:not(:last-child)::after {
+  content: '';
+  position: absolute; top: 50%; right: -13px;
+  width: 14px; height: 1px; background: rgba(255,215,0,0.35);
+}
+.app-container .pay-step-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.app-container .pay-step-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); opacity: 0.6; }
+.app-container .pay-step-top i { font-size: 20px; color: var(--gold); }
+.app-container .pay-step-ttl { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.app-container .pay-step-txt { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.app-container .pay-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Skill groups */
+.app-container .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.app-container .group-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.app-container .group-card:hover { border-color: rgba(255,215,0,0.4); transform: translateY(-3px); }
+.app-container .group-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.app-container .group-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--gold-dim); color: var(--gold);
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.app-container .group-title { font-size: 15px; font-weight: 700; }
+.app-container .group-list { list-style: none; margin: 0; padding: 0; }
+.app-container .group-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+.app-container .group-list li:first-child { border-top: none; padding-top: 0; }
+.app-container .group-skill { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.app-container .group-used { display: flex; flex-wrap: wrap; gap: 5px; }
+.app-container .used-tag {
+  font-size: 10px; color: var(--muted);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  padding: 2px 8px; border-radius: 100px;
+}
+
+@media (max-width: 1100px) {
+  .app-container .pay-flow { grid-template-columns: repeat(2, 1fr); }
+  .app-container .pay-step::after { display: none; }
+  .app-container .skill-groups { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .app-container .pay-flow { grid-template-columns: 1fr; }
+  .app-container .skill-groups { grid-template-columns: 1fr; }
+  .app-container .pay-feature { padding: 20px; }
+}
+
 /* ─── PROJECTS ─── */
 .app-container .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 
@@ -422,6 +538,39 @@
   flex-direction: column;
 }
 .app-container .proj-card:hover { border-color: rgba(255,215,0,0.5); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+
+.app-container .proj-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0a0a0a;
+}
+.app-container .proj-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s;
+}
+.app-container .proj-card:hover .proj-image img { transform: scale(1.04); }
+.app-container .proj-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,215,0,0.4);
+  color: var(--gold);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+}
 
 .app-container .proj-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); margin-bottom: 12px; opacity: 0.5; }
 .app-container .proj-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
